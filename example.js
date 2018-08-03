@@ -3,7 +3,7 @@ const Thread = require('./Thread');
 Thread.run(() => {            
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      reject(Date.now());
+      resolve('Hello');
     }, 3000);
   })
 })
