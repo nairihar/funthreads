@@ -19,7 +19,7 @@
     "lint_src": "eslint src",
     "lint_spec": "eslint spec --fix",
     "lint_examples": "NODE_ENV=development eslint examples --fix",
-    "test": "nyc mocha && node --experimental-worker spec",
+    "test": "nyc mocha spec/** && node --experimental-worker spec/integration",
     "coverage": "nyc report --reporter=text-lcov | npx coveralls"
   },
   "repository": {
