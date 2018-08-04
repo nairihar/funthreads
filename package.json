@@ -17,7 +17,7 @@
   },
   "scripts": {
     "lint_src": "eslint src",
-    "lint_spec": "eslint spec --fix",
+    "lint_test": "eslint test --fix",
     "lint_examples": "NODE_ENV=development eslint examples --fix",
     "test": "nyc node --experimental-worker node_modules/mocha/bin/_mocha test/**",
     "coverage": "nyc report --reporter=text-lcov | npx coveralls"

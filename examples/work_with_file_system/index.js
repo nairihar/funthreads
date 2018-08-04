@@ -1,13 +1,19 @@
 const Thread = require('function-threads');
 
+const customData = {
+  fileName: 'test.txt',
+};
+
 Thread.run(async () => {
   const fs = require('fs');
   const fsPromises = fs.promises;
 
-  await fsPromises.writeFile('test.txt', '');
+  const { fileName } = global.threadData;
+
+  await fsPromises.writeFile(fileName, '');
 
   return true;
-})
+}, customData)
   .then((res) => {
     console.log(`Success: ${res}`);
   })

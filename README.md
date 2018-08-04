@@ -5,9 +5,9 @@
 [![npm version](https://badge.fury.io/js/function-threads.svg)](https://www.npmjs.com/package/function-threads)
 
 # Function Threads
-Additional layer for Node.js's "worker_threads" module.
+Additional layer for Node.js "worker_threads" module.
 
-Library provides `run` function, which takes an callback as argument and runs it in a thread. It returns a promise, inside callback you can return promise or plain value(i.e. object, string and etc...).
+Library provides `run` function, which takes a callback as an argument, runs it in a thread and returns a promise. Inside callback you can return promise or plain value(i.e. object, string and etc...).
 
 ## Installation
 
@@ -26,7 +26,7 @@ $ yarn add function-threads
 
 Make sure you're using Node.js >= v10.5.0
 
-And always use `--experimental-worker` flag when you run project, because under the hood has been implemented [worker-threads](https://nodejs.org/api/worker_threads.html) which is in Experimental mode.
+And always use `--experimental-worker` flag when you run project, because [worker-threads](https://nodejs.org/api/worker_threads.html) has been implemented under the hood which is in Experimental mode.
 ```shall
 $ node --experimental-worker  index.js
 ```
@@ -58,15 +58,15 @@ Thread.run(() => 2 ** 10)
 
 #### Parameters
 *(Function)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
-*(object/array or primitive value)*: You can send custom data which will be used in thread. You can acces to this data using `global.threadData` in function.
+*(object/array or primitive value)*: You can send custom data which will be used in a thread. You can acces to this data using `global.threadData` in function.
 
 #### Returns
 *(Promise)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
 
 #### Important
 ```
-You can't access to any data outside of function, if you need use module you should require them in callback.
-The only to access data in callback from outside it's useage of second parameter.
+You can't access to any data outside of function, if you need to use a module, you should require it in a callback.
+The only way to access data in a callback from outside is the useage of second parameter.
 Closures will not work here.
 ```
 
@@ -75,24 +75,29 @@ Work wit FileSystem [_index.js_](https://github.com/nairihar/function-threads/bl
 ```javascript
 const Thread = require('function-threads');
 
+const customData = {
+  fileName: 'test.txt',
+};
+
 Thread.run(async () => {
   const fs = require('fs');
   const fsPromises = fs.promises;
 
-  await fsPromises.writeFile('test.txt', '');
+  const { fileName } = global.threadData;
+
+  await fsPromises.writeFile(fileName, '');
 
   return true;
-})
+}, customData)
   .then((res) => {
     console.log(`Success: ${res}`);
   })
   .catch((err) => {
     console.error(err);
   });
-
 ```
 
-And don't forgot use Node >= v10.5.0 and `--experimental-worker` flag. 
+And don't forgot to use Node >= v10.5.0 and `--experimental-worker` flag. 
 
 ```shell
 $ node --experimental-worker  index.js

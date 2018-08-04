@@ -9,7 +9,7 @@ install:
   - npm install
 script:
   - npm run lint_src
-  - npm run lint_spec
+  - npm run lint_test
   - npm run lint_examples
   - npm test
 after_success:
