@@ -53,4 +53,4 @@ $ node --experimental-worker  index.js
 - [Basic](https://github.com/nairihar/function-threads/tree/master/examples/basic)
 - [Run thread with custom data](https://github.com/nairihar/function-threads/blob/master/examples/run_thread_with_custom_data/index.js)
 - [Async thread](https://github.com/nairihar/function-threads/blob/master/examples/async_thread/index.js)
-- [Error handling](https://github.com/nairihar/function-threads/blob/master/examples/error_in_thread/index.js)
+- [Error handling](https://github.com/nairihar/function-threads/blob/master/examples/error_handling/index.js)

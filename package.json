@@ -1,6 +1,6 @@
 {
   "name": "function-threads",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Multi-threading library for Node.js which allows run functions in thread.",
   "keywords": [
     "node.js",
