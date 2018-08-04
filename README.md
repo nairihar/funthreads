@@ -49,8 +49,49 @@ Thread.run(() => 2 ** 10)
 $ node --experimental-worker  index.js
 ```
 
-### All examples:
+## All examples:
 - [Basic](https://github.com/nairihar/function-threads/tree/master/examples/basic)
 - [Run thread with custom data](https://github.com/nairihar/function-threads/blob/master/examples/run_thread_with_custom_data/index.js)
 - [Async thread](https://github.com/nairihar/function-threads/blob/master/examples/async_thread/index.js)
 - [Error handling](https://github.com/nairihar/function-threads/blob/master/examples/error_handling/index.js)
+- [Work with FileSystem](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js)
+
+## API
+
+### `Thread.run()`
+
+#### Parameters
+*(Function)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
+*(object/array or primitive value)*: You can send custom data which will be used in thread. You can acces to this data using `global.threadData` in function.
+
+#### Returns
+*(Promise)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
+
+#### Important
+```
+You can't access to any data outside of function, if you need use module you should require them in callback.
+The only to access data in callback from outside it's useage of second parameter.
+Closures will not work here.
+```
+
+#### Example
+Work wit FileSystem [index.js_](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js):
+```javascript
+const Thread = require('function-threads');
+
+Thread.run(async () => {
+  const fs = require('fs');
+  const fsPromises = fs.promises;
+
+  await fsPromises.writeFile('test.txt', '');
+
+  return true;
+})
+  .then((res) => {
+    console.log(`Success: ${res}`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+```
