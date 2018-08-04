@@ -1,0 +1,43 @@
+{
+  "name": "function-threads",
+  "version": "1.0.0",
+  "description": "Multi-threading library for Node.js which allows run functions in thread.",
+  "keywords": [
+    "node.js",
+    "worker",
+    "workers",
+    "thread",
+    "threads",
+    "worker-threads"
+  ],
+  "main": "src/index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "lint_src": "eslint src",
+    "lint_spec": "eslint spec --fix",
+    "lint_examples": "NODE_ENV=development eslint examples --fix",
+    "test": "nyc mocha && node --experimental-worker spec",
+    "coverage": "nyc report --reporter=text-lcov | npx coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nairihar/function-threads.git"
+  },
+  "author": "Nairi Harutyunyan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nairihar/function-threads/issues"
+  },
+  "homepage": "https://github.com/nairihar/function-threads#readme",
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  }
+}

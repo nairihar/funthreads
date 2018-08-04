@@ -1,15 +1,15 @@
 const { generateCallbackStr } = require('./callback');
 
 function generateWorkerData(cb, threadData) {
-    const cbStr = generateCallbackStr(cb);
-    const workerData = {
-        cbStr,
-        threadData
-    };
+  const cbStr = generateCallbackStr(cb);
+  const workerData = {
+    cbStr,
+    threadData,
+  };
 
-    return workerData;
+  return workerData;
 }
 
 module.exports = {
-    generateWorkerData
+  generateWorkerData,
 };

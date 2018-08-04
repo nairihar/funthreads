@@ -16,5 +16,5 @@ function generateCallbackStr(cb) {
 }
 
 module.exports = {
-  generateCallbackStr
+  generateCallbackStr,
 };

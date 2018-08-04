@@ -1,7 +1,7 @@
 const { generateWorkerData } = require('./worker');
 
 const utils = {
-    generateWorkerData
+  generateWorkerData,
 };
 
 module.exports = utils;
