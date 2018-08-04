@@ -10,15 +10,13 @@ Library provides "run" function, which takes an callback as argument, and runs i
 
 ### Example
 ```javascript
-const Thread = require('./Thread');
+const Thread = require('function-threads');
 
-Thread.run(() => {            
-  return 2 ** 10;
-})
-.then(res => {
-  console.log(`Success: ${res}`);
-})
-.catch(err => {
-  console.error(err);
-});
+Thread.run(() => 2 ** 10)
+  .then((num) => {
+    console.log(`Result: ${num}`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 ```
