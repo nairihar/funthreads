@@ -1,4 +1,4 @@
-const Thread = require('../spec');
+const Thread = require('function-threads');
 
 Thread.run(() => 2 ** 10)
   .then((num) => {

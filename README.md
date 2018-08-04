@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/nairihar/function-threads.svg?branch=master)](https://travis-ci.org/nairihar/function-threads)
+[![Coverage Status](https://coveralls.io/repos/github/nairihar/function-threads/badge.svg?branch=master)](https://coveralls.io/github/nairihar/function-threads?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/nairihar/shared/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nairihar/shared?targetFile=package.json)
+[![Maintainability](https://api.codeclimate.com/v1/badges/58a6979fd059a021b05e/maintainability)](https://codeclimate.com/github/nairihar/function-threads/maintainability)
+
 # Function Threads
 Additional layer for Node.js "worker_threads" module.
 

@@ -1,4 +1,4 @@
-const Thread = require('../../spec');
+const Thread = require('function-threads');
 
 Thread.run(() => 1 + a)
   .then((str) => {
