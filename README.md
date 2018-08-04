@@ -45,10 +45,6 @@ Thread.run(() => 2 ** 10)
   });
 ```
 
-```shell
-$ node --experimental-worker  index.js
-```
-
 ## All examples:
 - [Basic](https://github.com/nairihar/function-threads/tree/master/examples/basic)
 - [Run thread with custom data](https://github.com/nairihar/function-threads/blob/master/examples/run_thread_with_custom_data/index.js)
@@ -75,7 +71,7 @@ Closures will not work here.
 ```
 
 #### Example
-Work wit FileSystem [index.js_](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js):
+Work wit FileSystem [_index.js_](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js):
 ```javascript
 const Thread = require('function-threads');
 
@@ -94,4 +90,10 @@ Thread.run(async () => {
     console.error(err);
   });
 
+```
+
+And don't forgot use Node >= v10.5.0 and `--experimental-worker` flag. 
+
+```shell
+$ node --experimental-worker  index.js
 ```
