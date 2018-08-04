@@ -58,6 +58,7 @@ Thread.run(() => 2 ** 10)
 
 #### Parameters
 *(Function)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
+
 *(object/array or primitive value)*: You can send custom data which will be used in a thread.
 You can acces to this data using `global.threadData` in function.
 
