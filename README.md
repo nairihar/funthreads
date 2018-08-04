@@ -7,7 +7,7 @@
 # Function Threads
 Additional layer for Node.js's "worker_threads" module.
 
-Library provides `run` function, which takes an callback as argument, and runs it in a thread. It returns a promise, inside callback you can return promise or plain value(i.e. object, string and etc...).
+Library provides `run` function, which takes an callback as argument and runs it in a thread. It returns a promise, inside callback you can return promise or plain value(i.e. object, string and etc...).
 
 ## Installation
 
@@ -26,7 +26,7 @@ $ yarn add function-threads
 
 Make sure you're using Node.js >= v10.5.0
 
-And always use `--experimental-worker` flag when you run project, because under the hood implemented [worker-threads](https://nodejs.org/api/worker_threads.html) which is in Experimental mode.
+And always use `--experimental-worker` flag when you run project, because under the hood has been implemented [worker-threads](https://nodejs.org/api/worker_threads.html) which is in Experimental mode.
 ```shall
 $ node --experimental-worker  index.js
 ```
