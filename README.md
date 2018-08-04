@@ -8,7 +8,20 @@ Additional layer for Node.js "worker_threads" module.
 
 Library provides "run" function, which takes an callback as argument, and runs it in a thread. It returns a promise, inside callback you can return promise or plain value(i.e. object, string and etc...).
 
-### Example
+## Installation
+
+
+Using npm:
+```shell
+$ npm i --save function-threads
+```
+
+Using yarn:
+```shell
+$ yarn add function-threads
+```
+
+## Example
 ```javascript
 const Thread = require('function-threads');
 
