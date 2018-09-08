@@ -60,15 +60,15 @@ Thread.run(() => 2 ** 10)
 *(Function)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
 
 *(object/array or primitive value)*: You can send custom data which will be used in a thread.
-You can acces to this data using `global.threadData` in function.
+You can access to this data using `global.threadData` in function.
 
 #### Returns
 *(Promise)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
 
 #### Important
 ```
-You can't access to any data outside of function, if you need to use a module, you should
-require it in a callback. The only way to access data in a callback from outside is the useage
+You can't accesss to any data outside of function, if you need to use a module, you should
+require it in a callback. The only way to accesss data in a callback from outside is the useage
 of second parameter. Closures will not work here.
 ```
 
