@@ -73,7 +73,7 @@ of second parameter. Closures will not work here.
 ```
 
 #### Example
-Work wit FileSystem [_index.js_](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js):
+Work with FileSystem [_index.js_](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js):
 ```javascript
 const Thread = require('function-threads');
 
