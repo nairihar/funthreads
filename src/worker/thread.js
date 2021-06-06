@@ -2,8 +2,8 @@
 
 const { workerData } = require('worker_threads');
 
-const { threadData, cbStr } = workerData;
+const { threadData, workerCode } = workerData;
 
 global.threadData = threadData;
 
-eval(cbStr);
+eval(workerCode);

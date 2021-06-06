@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/nairihar/function-threads.svg?branch=master)](https://travis-ci.org/nairihar/function-threads)
-[![Coverage Status](https://coveralls.io/repos/github/nairihar/function-threads/badge.svg?branch=master)](https://coveralls.io/github/nairihar/function-threads?branch=master)
+[![Build Status](https://travis-ci.org/nairihar/funthreads.svg?branch=master)](https://travis-ci.org/nairihar/funthreads)
+[![Coverage Status](https://coveralls.io/repos/github/nairihar/funthreads/badge.svg?branch=master)](https://coveralls.io/github/nairihar/funthreads?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/nairihar/shared/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nairihar/shared?targetFile=package.json)
-[![Maintainability](https://api.codeclimate.com/v1/badges/58a6979fd059a021b05e/maintainability)](https://codeclimate.com/github/nairihar/function-threads/maintainability)
-[![npm version](https://badge.fury.io/js/function-threads.svg)](https://www.npmjs.com/package/function-threads)
+[![Maintainability](https://api.codeclimate.com/v1/badges/58a6979fd059a021b05e/maintainability)](https://codeclimate.com/github/nairihar/funthreads/maintainability)
+[![npm version](https://badge.fury.io/js/funthreads.svg)](https://www.npmjs.com/package/funthreads)
 
-# Function Threads
+# funthreads
 Additional layer for Node.js "worker_threads" module.
 
 Library provides `run` function, which takes a callback as an argument, runs it in a thread and returns a promise. Inside callback you can return promise or plain value(i.e. object, string and etc...).
@@ -14,27 +14,27 @@ Library provides `run` function, which takes a callback as an argument, runs it 
 
 Using npm:
 ```shell
-$ npm i --save function-threads
+$ npm i --save funthreads
 ```
 
 Using yarn:
 ```shell
-$ yarn add function-threads
+$ yarn add funthreads
 ```
 
 ## Example
 
 Make sure you're using Node.js >= v10.5.0
 
-And always use `--experimental-worker` flag when you run project, because [worker-threads](https://nodejs.org/api/worker_threads.html) has been implemented under the hood which is in Experimental mode.
+In case if you use an old version of node, where the `worker-threads` module is in experimental mode, then add `--experimental-worker` flag when you run project(details: [worker-threads](https://nodejs.org/api/worker_threads.html)).
 ```shall
 $ node --experimental-worker  index.js
 ```
 
-Example [_basic/index.js_](https://github.com/nairihar/function-threads/blob/master/examples/basic/index.js):
+Example [_basic/index.js_](https://github.com/nairihar/funthreads/blob/master/examples/basic/index.js):
 
 ```javascript
-const Thread = require('function-threads');
+const Thread = require('funthreads');
 
 Thread.run(() => 2 ** 10)
   .then((num) => {
@@ -46,11 +46,11 @@ Thread.run(() => 2 ** 10)
 ```
 
 ## All examples:
-- [Basic](https://github.com/nairihar/function-threads/tree/master/examples/basic)
-- [Run thread with custom data](https://github.com/nairihar/function-threads/blob/master/examples/run_thread_with_custom_data/index.js)
-- [Async thread](https://github.com/nairihar/function-threads/blob/master/examples/async_thread/index.js)
-- [Error handling](https://github.com/nairihar/function-threads/blob/master/examples/error_handling/index.js)
-- [Work with FileSystem](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js)
+- [Basic](https://github.com/nairihar/funthreads/tree/master/examples/basic)
+- [Run thread with custom data](https://github.com/nairihar/funthreads/blob/master/examples/run_thread_with_custom_data/index.js)
+- [Async thread](https://github.com/nairihar/funthreads/blob/master/examples/async_thread/index.js)
+- [Error handling](https://github.com/nairihar/funthreads/blob/master/examples/error_handling/index.js)
+- [Work with FileSystem](https://github.com/nairihar/funthreads/blob/master/examples/work_with_file_system/index.js)
 
 ## API
 
@@ -73,9 +73,9 @@ of second parameter. Closures will not work here.
 ```
 
 #### Example
-Work with FileSystem [_index.js_](https://github.com/nairihar/function-threads/blob/master/examples/work_with_file_system/index.js):
+Work with FileSystem [_index.js_](https://github.com/nairihar/funthreads/blob/master/examples/work_with_file_system/index.js):
 ```javascript
-const Thread = require('function-threads');
+const Thread = require('funthreads');
 
 const customData = {
   fileName: 'test.txt',
@@ -99,8 +99,6 @@ Thread.run(async () => {
   });
 ```
 
-And don't forgot to use Node >= v10.5.0 and `--experimental-worker` flag. 
-
 ```shell
-$ node --experimental-worker  index.js
+$ node  index.js
 ```

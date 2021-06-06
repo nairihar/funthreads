@@ -1,12 +1,12 @@
-const assert = require('assert');
+import assert from 'assert';
 
-const { generateCallbackStr } = require('../../src/utils/callback');
+import { genWorkerData } from '../../src/utils/worker';
 
 describe('Utils Callback', () => {
   const myFunction = () => console.log(2 ** 10);
   const myFunctionStr = myFunction.toString();
   it('should generate string which includes myFunctionStr', () => {
-    const str = generateCallbackStr(myFunction);
-    assert.notEqual(str.indexOf(myFunctionStr), -1);
+    const { workerCode } = genWorkerData(myFunction, {});
+    assert.notEqual(workerCode.indexOf(myFunctionStr), -1);
   });
 });

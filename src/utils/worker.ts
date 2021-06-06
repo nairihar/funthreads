@@ -1,5 +1,4 @@
-function generateCallbackStr(cb) {
-  const cbStr = `
+export const geneWorkerCode = (cb:string) : string => `
     (async () => {
       const { parentPort } = require('worker_threads');
       try {              
@@ -12,9 +11,13 @@ function generateCallbackStr(cb) {
       }
     })();
   `;
-  return cbStr;
-}
 
-module.exports = {
-  generateCallbackStr,
+type WorkerOptions = {
+  workerCode: string,
+  threadData: object,
 };
+
+export const genWorkerData = (cb:()=>any, data:object): WorkerOptions => ({
+  workerCode: geneWorkerCode(cb.toString()),
+  threadData: data,
+});

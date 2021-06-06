@@ -1,6 +1,6 @@
 {
-  "name": "function-threads",
-  "version": "1.0.3",
+  "name": "funthreads",
+  "version": "1.0.0",
   "description": "Multi-threading library for Node.js which allows run functions in thread.",
   "keywords": [
     "node.js",
@@ -10,34 +10,47 @@
     "threads",
     "worker-threads"
   ],
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "directories": {
     "example": "examples",
     "test": "test"
   },
+  "engines": {
+    "node": ">=10.5"
+  },
   "scripts": {
-    "lint_src": "eslint src",
-    "lint_test": "eslint test --fix",
-    "lint_examples": "NODE_ENV=development eslint examples --fix",
-    "test": "nyc node --experimental-worker node_modules/mocha/bin/_mocha test/**",
-    "coverage": "nyc report --reporter=text-lcov | npx coveralls"
+    "lint:src": "eslint src",
+    "lint:test": "eslint test --fix",
+    "lint:examples": "NODE_ENV=development eslint examples --fix",
+    "build": "rimraf dist && tsc && npm run copy-files",
+    "test": "jest test/**/*.ts --coverage",
+    "copy-files": "copyfiles -u 1 src/**/*.js dist",
+    "coverage": "jest test/**/*.ts --coverage | npx coveralls",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nairihar/function-threads.git"
+    "url": "git+https://github.com/nairihar/funthreads.git"
   },
   "author": "Nairi Harutyunyan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nairihar/function-threads/issues"
+    "url": "https://github.com/nairihar/funthreads/issues"
   },
-  "homepage": "https://github.com/nairihar/function-threads#readme",
+  "homepage": "https://github.com/nairihar/funthreads#readme",
   "devDependencies": {
-    "coveralls": "^3.0.2",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "mocha": "^5.2.0",
-    "nyc": "^12.0.2"
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.1",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "copyfiles": "^2.4.1",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.28.0",
+    "jest": "^27.0.4",
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
   }
 }
