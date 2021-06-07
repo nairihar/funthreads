@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/nairihar/funthreads.svg?branch=master)](https://travis-ci.org/nairihar/funthreads)
-[![Coverage Status](https://coveralls.io/repos/github/nairihar/funthreads/badge.svg?branch=master)](https://coveralls.io/github/nairihar/funthreads?branch=master)
-[![Known Vulnerabilities](https://snyk.io/test/github/nairihar/shared/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nairihar/shared?targetFile=package.json)
-[![Maintainability](https://api.codeclimate.com/v1/badges/58a6979fd059a021b05e/maintainability)](https://codeclimate.com/github/nairihar/funthreads/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/94861d745710a9a493d7/test_coverage)](https://codeclimate.com/github/nairihar/funthreads/test_coverage)
+[![Known Vulnerabilities](https://snyk.io/test/github/nairihar/funthreads/badge.svg)](https://snyk.io/test/github/nairihar/funthreads)
+[![Maintainability](https://api.codeclimate.com/v1/badges/94861d745710a9a493d7/maintainability)](https://codeclimate.com/github/nairihar/funthreads/maintainability)
 [![npm version](https://badge.fury.io/js/funthreads.svg)](https://www.npmjs.com/package/funthreads)
 
 # funthreads
