@@ -8,9 +8,9 @@ before_install:
 install:
   - npm install
 script:
-  - npm run lint_src
-  - npm run lint_test
-  - npm run lint_examples
+  - npm run lint:src
+  - npm run lint:test
+  - npm run lint:examples
   - npm test
 after_success:
   - npm run coverage
