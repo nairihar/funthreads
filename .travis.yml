@@ -8,7 +8,6 @@ before_script:
   - ./cc-test-reporter before-build
 before_install:  
   - node -v && npm -v
-  - npm install -g npx
 install:
   - npm install
 script:
