@@ -1,7 +1,7 @@
 {
   "name": "funthreads",
-  "version": "1.0.0",
-  "description": "Multi-threading library for Node.js which allows run functions in thread.",
+  "version": "1.0.1",
+  "description": "Multi-threading library for Node.js. Run functions inside threads.",
   "keywords": [
     "node.js",
     "worker",
@@ -19,8 +19,8 @@
     "node": ">=10.5"
   },
   "scripts": {
-    "lint:src": "eslint src",
-    "lint:test": "eslint test --fix",
+    "lint:src": "eslint src --fix",
+    "lint:test": "NODE_ENV=development eslint test/**/* --fix",
     "lint:examples": "NODE_ENV=development eslint examples --fix",
     "build": "rimraf dist && tsc && npm run copy-files",
     "test": "jest test/**/*.ts --coverage",
@@ -51,6 +51,7 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.2",
     "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.2",
+    "babel-eslint": "^10.1.0"
   }
 }

@@ -4,6 +4,7 @@ module.exports = {
     "es6": true,
     "mocha": true
   },
+  "parser": "babel-eslint",
   parserOptions: {
     project: './tsconfig.json',
   },
