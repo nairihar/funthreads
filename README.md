@@ -7,7 +7,7 @@
 # funthreads
 Additional layer for Node.js "worker_threads" module.
 
-Library provides `run` function, which takes a callback as an argument, runs it in a thread and returns a promise. Inside callback you can return promise or plain value(i.e. object, string and etc...).
+Library provides `runOnThread` function, which takes a callback as an argument, runs it in a thread and returns a promise. Inside callback you can return promise or plain value(i.e. object, string and etc...).
 
 ## Installation
 
@@ -36,7 +36,7 @@ Example [_basic/index.js_](https://github.com/nairihar/funthreads/blob/master/ex
 ```javascript
 const Thread = require('funthreads');
 
-Thread.run(() => 2 ** 10)
+Thread.runOnThread(() => 2 ** 10)
   .then((num) => {
     console.log(`Result: ${num}`);
   })
@@ -54,7 +54,7 @@ Thread.run(() => 2 ** 10)
 
 ## API
 
-### `Thread.run()`
+### `Thread.runOnThread()`
 
 #### Parameters
 *(Function)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
@@ -81,7 +81,7 @@ const customData = {
   fileName: 'test.txt',
 };
 
-Thread.run(async () => {
+Thread.runOnThread(async () => {
   const fs = require('fs');
   const fsPromises = fs.promises;
 
