@@ -34,9 +34,9 @@ $ node --experimental-worker  index.js
 Example [_basic/index.js_](https://github.com/nairihar/funthreads/blob/master/examples/basic/index.js):
 
 ```javascript
-const Thread = require('funthreads');
+import { runOnThread } from 'funthreads';
 
-Thread.run(() => 2 ** 10)
+runOnThread(() => 2 ** 10))
   .then((num) => {
     console.log(`Result: ${num}`);
   })
@@ -75,13 +75,13 @@ of second parameter. Closures will not work here.
 #### Example
 Work with FileSystem [_index.js_](https://github.com/nairihar/funthreads/blob/master/examples/work_with_file_system/index.js):
 ```javascript
-const Thread = require('funthreads');
+import { runOnThread } from 'funthreads';
 
 const customData = {
   fileName: 'test.txt',
 };
 
-Thread.run(async () => {
+runOnThread(async () => {
   const fs = require('fs');
   const fsPromises = fs.promises;
 
