@@ -7,7 +7,8 @@
 # funthreads
 Additional layer for Node.js "worker_threads" module.
 
-Library provides `run` function, which takes a callback as an argument, runs it in a thread and returns a promise. Inside callback you can return promise or plain value(i.e. object, string and etc...).
+Library provides a function, which takes a callback as an argument, runs it in a separate thread and returns a Promise.
+Inside callback you can return a Promise or plain value(i.e. object, string and etc...).
 
 ## Installation
 
