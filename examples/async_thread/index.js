@@ -1,6 +1,6 @@
-const Thread = require('function-threads');
+const { runOnThread } = require('function-threads');
 
-Thread.run(async () => new Promise((resolve) => {
+runOnThread(async () => new Promise((resolve) => {
   setTimeout(() => {
     resolve('async');
   }, 3000);

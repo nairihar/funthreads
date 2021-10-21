@@ -1,10 +1,10 @@
-const Thread = require('function-threads');
+const { runOnThread } = require('function-threads');
 
 const customData = {
   fileName: 'test.txt',
 };
 
-Thread.run(async () => {
+runOnThread(async () => {
   const fs = require('fs');
   const fsPromises = fs.promises;
 

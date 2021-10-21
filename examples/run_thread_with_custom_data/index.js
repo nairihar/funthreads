@@ -1,10 +1,10 @@
-const Thread = require('function-threads');
+const { runOnThread } = require('function-threads');
 
 const customData = {
   name: 'Jhon',
 };
 
-Thread.run(() => {
+runOnThread(() => {
   const { name } = global.threadData;
   return `Hello ${name}`;
 }, customData)
