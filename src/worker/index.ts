@@ -1,7 +1,7 @@
 import path from 'path';
 import { Worker } from 'worker_threads';
 
-const workerPath = path.join(__dirname, 'thread.js');
+const workerPath = path.join(__dirname, 'thread.cjs');
 
 export default (workerData:object): Promise<void> => new Promise((resolve, reject) => {
   const worker = new Worker(workerPath, {
