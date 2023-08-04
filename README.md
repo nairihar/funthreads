@@ -7,7 +7,7 @@
 # funthreads
 A simple library that provides an abstraction for the Node.js worker_threads module. 🔥
 
-This library presents a function that takes a callback as its parameter, orchestrates its execution in a dedicated thread, and subsequently delivers a Promise. Within the confines of this callback, you retain the freedom to furnish either a Promise or an unprocessed value (ranging from objects to strings, and more).
+You can run your function in a dedicated thread by working with Promises. This library presents a simple tool that takes a task function as its parameter, orchestrates its execution in a new thread, and subsequently delivers a Promise. Within the confines of this task function, you retain the freedom to furnish either a Promise or an unprocessed value (ranging from objects to strings, and more).
 
 Furthermore, this library seamlessly integrates with Async/Await and TypeScript for an elevated development experience.
 
