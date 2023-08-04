@@ -20,7 +20,6 @@ $ npm i funthreads
 ## Example
 
 This example demonstrates the optimization of two resource-intensive calculations through parallel execution in distinct threads.
-
 By distributing the tasks across separate threads, significant time savings are achieved.
 
 ```javascript
