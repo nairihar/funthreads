@@ -36,7 +36,6 @@ async function calculate() {
 }
 
 calculate();
-
 ```
 
 **Surprisingly simple, isn't it?**
@@ -78,22 +77,18 @@ In this example, we're reading a file in a separate thread and returning the dat
 ```javascript
 import executeInThread from 'funthreads';
 
-
-async function task({ name }) {
+// this will be executed in a dedicated thread
+async function task(fileName) {
     // Closure doesn't work here
+    const { writeFile } = require('fs/promises');
 
-    const fs = require('fs/promises');
-    const buffer = await fsPromises.readFile(fileName);
-    
-    return buffer.toString();
+    await writeFile(fileName, 'Hello from a thread!');
 }
 
-const params = {
-  name: 'test.txt',
-};
+const fileName = 'thread.txt';
 
 async function read() {
-    const content = await executeInThread(task, params);
+    const content = await executeInThread(task, fileName);
     
     console.log(content);
 }
