@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/nairihar/funthreads.svg?branch=master)](https://travis-ci.org/nairihar/funthreads)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/94861d745710a9a493d7/test_coverage)](https://codeclimate.com/github/nairihar/funthreads/test_coverage)
 [![Known Vulnerabilities](https://snyk.io/test/github/nairihar/funthreads/badge.svg)](https://snyk.io/test/github/nairihar/funthreads)
 [![Maintainability](https://api.codeclimate.com/v1/badges/94861d745710a9a493d7/maintainability)](https://codeclimate.com/github/nairihar/funthreads/maintainability)
-[![npm version](https://badge.fury.io/js/funthreads.svg)](https://www.npmjs.com/package/funthreads)
+![](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
+![](https://img.shields.io/npm/dt/funthreads.svg)
+![](https://img.shields.io/npm/l/funthreads.svg)
 
 # funthreads
 A simple library that provides an abstraction for the Node.js worker_threads module. 🔥
