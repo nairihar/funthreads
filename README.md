@@ -40,15 +40,15 @@ calculate();
 
 **Surprisingly simple, isn't it?**
 
-A comprehensive example can be found here: [_basic/index.js_](https://github.com/nairihar/funthreads/blob/master/examples/basic/index.js):
+A comprehensive example can be found here: [_basic/index.js_](https://github.com/nairihar/funthreads/blob/master/examples/basic.js):
 
 
 ## All examples:
-- [Basic example](https://github.com/nairihar/funthreads/tree/master/examples/basic)
-- [Execute the task on a thread with pre-defined initial data](https://github.com/nairihar/funthreads/blob/master/examples/run_thread_with_custom_data/index.js)
-- [Async thread](https://github.com/nairihar/funthreads/blob/master/examples/async_thread/index.js)
-- [Error handling](https://github.com/nairihar/funthreads/blob/master/examples/error_handling/index.js)
-- [Work with FileSystem](https://github.com/nairihar/funthreads/blob/master/examples/work_with_file_system/index.js)
+- [Basic example](https://github.com/nairihar/funthreads/tree/master/examples/basic.js)
+- [Parameters for the thread task](https://github.com/nairihar/funthreads/blob/master/examples/multi-params.js)
+- [Async function inside the thread](https://github.com/nairihar/funthreads/blob/master/examples/async-thread.js)
+- [Error handling](https://github.com/nairihar/funthreads/blob/master/examples/error-handling.js)
+- [Use modules inside the thread](https://github.com/nairihar/funthreads/blob/master/examples/modules-in-thread.js)
 
 ## API
 
