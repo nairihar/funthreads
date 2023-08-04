@@ -5,101 +5,96 @@
 [![npm version](https://badge.fury.io/js/funthreads.svg)](https://www.npmjs.com/package/funthreads)
 
 # funthreads
-Additional layer for Node.js "worker_threads" module.
+Introducing an enhanced layer for the Node.js `worker_threads` module.
 
-Library provides a function, which takes a callback as an argument, runs it in a separate thread and returns a Promise.
-Inside callback you can return a Promise or plain value(i.e. object, string and etc...).
+This library presents a function that takes a callback as its parameter, orchestrates its execution in a dedicated thread, and subsequently delivers a Promise. Within the confines of this callback, you retain the freedom to furnish either a Promise or an unprocessed value (ranging from objects to strings, and more).
+
+Furthermore, this library seamlessly integrates with Async/Await and TypeScript for an elevated development experience.
 
 ## Installation
 
-
-Using npm:
 ```shell
-$ npm i --save funthreads
-```
-
-Using yarn:
-```shell
-$ yarn add funthreads
+$ npm i funthreads
 ```
 
 ## Example
 
-Make sure you're using Node.js >= v10.5.0
-
-In case if you use an old version of node, where the `worker-threads` module is in experimental mode, then add `--experimental-worker` flag when you run project(details: [worker-threads](https://nodejs.org/api/worker_threads.html)).
-```shall
-$ node --experimental-worker  index.js
-```
-
-Example [_basic/index.js_](https://github.com/nairihar/funthreads/blob/master/examples/basic/index.js):
+This example demonstrates the optimization of two resource-intensive calculations through parallel execution in distinct threads. By distributing the tasks across separate threads, significant time savings are achieved.
 
 ```javascript
 import { runOnThread } from 'funthreads';
 
-runOnThread(() => 2 ** 10))
-  .then((num) => {
-    console.log(`Result: ${num}`);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+async function calculate() {
+    const values = await Promise.all([
+        runOnThread(() => 2 ** 10)),
+        
+        runOnThread(() => 3 ** 10))
+    ]);
+    
+    console.log(values);
+}
+
+calculate();
 ```
 
+**Surprisingly simple, isn't it?**
+
+A comprehensive example can be found here: [_basic/index.js_](https://github.com/nairihar/funthreads/blob/master/examples/basic/index.js):
+
+
 ## All examples:
-- [Basic](https://github.com/nairihar/funthreads/tree/master/examples/basic)
-- [Run thread with custom data](https://github.com/nairihar/funthreads/blob/master/examples/run_thread_with_custom_data/index.js)
+- [Basic example](https://github.com/nairihar/funthreads/tree/master/examples/basic)
+- [Execute the task on a thread with pre-defined initial data](https://github.com/nairihar/funthreads/blob/master/examples/run_thread_with_custom_data/index.js)
 - [Async thread](https://github.com/nairihar/funthreads/blob/master/examples/async_thread/index.js)
 - [Error handling](https://github.com/nairihar/funthreads/blob/master/examples/error_handling/index.js)
 - [Work with FileSystem](https://github.com/nairihar/funthreads/blob/master/examples/work_with_file_system/index.js)
 
 ## API
 
-### `Thread.run()`
+### `runOnThread(task, ...params)`
+Execute a function in a thread.
 
 #### Parameters
-*(Function)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
+*Task (Function)*: The function to be executed in a thread.
+*...params (any)*: Additional arguments to be passed to the Task function.
 
-*(object/array or primitive value)*: You can send custom data which will be used in a thread.
-You can access to this data using `global.threadData` in function.
+The `runOnThread` function allows you to execute a given task function in a dedicated thread, similar to the behavior of `setTimeout` or `setInterval`. You provide the main function to be executed, along with any additional arguments (...args) that should be passed to the given function.
 
 #### Returns
-*(Promise)*: Returns Promise, you can use `async/await` or just `then/catch` to get value.
+*Promise<any>*: A Promise that resolves with the return value of the callback.
+
+Inside the provided function, you have the flexibility to return any value, including a Promise. The returned value, whether it's a standard value or a Promise, will be passed back to you as the resolved result of the `Promise` returned by the `runOnThread` function.
 
 #### Important
-```
-You can't accesss to any data outside of function, if you need to use a module, you should
-require it in a callback. The only way to accesss data in a callback from outside is the useage
-of second parameter. Closures will not work here.
-```
+
+Access to data outside of the task function is restricted. If you require the use of a module, it should be required within the task function. The sole method for accessing data within a task function from external sources is through the utilization of the parameters. Closures do not function in this context.
 
 #### Example
-Work with FileSystem [_index.js_](https://github.com/nairihar/funthreads/blob/master/examples/work_with_file_system/index.js):
+
+In this example, we're reading a file in a separate thread and returning the data in string format. We start by defining a task function that will run within the thread, and then we prepare the necessary parameters to be passed as inputs to that function.
+
 ```javascript
 import { runOnThread } from 'funthreads';
 
-const customData = {
-  fileName: 'test.txt',
+
+async function task({ name }) {
+    // closure doesn't work here
+
+    const fs = require('fs/promises');
+    const buffer = await fsPromises.readFile(fileName);
+    
+    return buffer.toString();
+}
+
+const params = {
+  name: 'test.txt',
 };
 
-runOnThread(async () => {
-  const fs = require('fs');
-  const fsPromises = fs.promises;
+async function read() {
+    const content = await runOnThread(task, params);
+    
+    console.log(content);
+}
 
-  const { fileName } = global.threadData;
-
-  await fsPromises.writeFile(fileName, '');
-
-  return true;
-}, customData)
-  .then((res) => {
-    console.log(`Success: ${res}`);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-```
-
-```shell
-$ node  index.js
+read();
 ```
