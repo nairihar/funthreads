@@ -1,9 +1,9 @@
-import { genWorkerData } from './utils/worker';
-import startWorker from './worker';
+import startWorker from './worker/worker';
+import { createWorkerMetadata } from './worker/metadata';
 
-export const runOnThread = (cb: () => any, data: object | undefined = {}) => {
-  const workerData = genWorkerData(cb, data);
-  return startWorker(workerData);
+const executeInThread = (task: () => any, ...params: any[]) => {
+  const metadata = createWorkerMetadata(task, params);
+  return startWorker(metadata);
 };
 
-export default runOnThread;
+export default executeInThread;

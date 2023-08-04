@@ -1,7 +1,7 @@
 {
   "name": "funthreads",
-  "version": "1.0.3",
-  "description": "Multi-threading library for Node.js. Run functions inside threads.",
+  "version": "1.1.0",
+  "description": "A lightweight tool built on top of Node.js worker_threads, enabling multithreading.",
   "keywords": [
     "node.js",
     "worker",
@@ -36,7 +36,6 @@
   "bugs": {
     "url": "https://github.com/nairihar/funthreads/issues"
   },
-  "type": "module",
   "homepage": "https://github.com/nairihar/funthreads#readme",
   "devDependencies": {
     "@types/jest": "^26.0.23",
