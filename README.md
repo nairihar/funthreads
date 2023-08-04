@@ -46,7 +46,7 @@ A comprehensive example can be found here: [_basic/index.js_](https://github.com
 ## All examples:
 - [Basic example](https://github.com/nairihar/funthreads/tree/master/examples/basic.js)
 - [Parameters for the thread task](https://github.com/nairihar/funthreads/blob/master/examples/multi-params.js)
-- [Async function inside the thread](https://github.com/nairihar/funthreads/blob/master/examples/async-thread.js)
+- [Async function inside the thread](https://github.com/nairihar/funthreads/blob/master/examples/async-task.js)
 - [Error handling](https://github.com/nairihar/funthreads/blob/master/examples/error-handling.js)
 - [Use modules inside the thread](https://github.com/nairihar/funthreads/blob/master/examples/modules-in-thread.js)
 
