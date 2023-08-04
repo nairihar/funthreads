@@ -3,9 +3,9 @@ import { Worker } from 'worker_threads';
 
 const workerPath = path.join(__dirname, 'thread.js');
 
-export default (workerData:object): Promise<void> => new Promise((resolve, reject) => {
+export default (metadata: object): Promise<void> => new Promise((resolve, reject) => {
   const worker = new Worker(workerPath, {
-    workerData,
+    workerData: metadata,
   });
 
   let finished:boolean = false;
