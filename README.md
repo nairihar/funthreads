@@ -23,19 +23,20 @@ This example demonstrates the optimization of two resource-intensive calculation
 By distributing the tasks across separate threads, significant time savings are achieved.
 
 ```javascript
-import { runOnThread } from 'funthreads';
+import executeInThread from 'funthreads';
 
 async function calculate() {
     const values = await Promise.all([
-        runOnThread(() => 2 ** 10)),
+        executeInThread(() => 2 ** 10),
         
-        runOnThread(() => 3 ** 10))
+        executeInThread(() => 3 ** 10)
     ]);
     
     console.log(values);
 }
 
 calculate();
+
 ```
 
 **Surprisingly simple, isn't it?**
@@ -52,19 +53,19 @@ A comprehensive example can be found here: [_basic/index.js_](https://github.com
 
 ## API
 
-### `runOnThread(task, ...params)`
+### `executeInThread(task, ...params)`
 Execute a function in a thread.
 
 #### Parameters
 *Task (Function)*: The function to be executed in a thread.
 *...params (any)*: Additional arguments to be passed to the Task function.
 
-The `runOnThread` function allows you to execute a given task function in a dedicated thread, similar to the behavior of `setTimeout` or `setInterval`. You provide the main function to be executed, along with any additional arguments (...args) that should be passed to the given function.
+The `executeInThread` function allows you to execute a given task function in a dedicated thread, similar to the behavior of `setTimeout` or `setInterval`. You provide the main function to be executed, along with any additional arguments (...args) that should be passed to the given function.
 
 #### Returns
 *Promise<any>*: A Promise that resolves with the return value of the callback.
 
-Inside the provided function, you have the flexibility to return any value, including a Promise. The returned value, whether it's a standard value or a Promise, will be passed back to you as the resolved result of the `Promise` returned by the `runOnThread` function.
+Inside the provided function, you have the flexibility to return any value, including a Promise. The returned value, whether it's a standard value or a Promise, will be passed back to you as the resolved result of the `Promise` returned by the `executeInThread` function.
 
 #### Important
 
@@ -75,11 +76,11 @@ Access to data outside of the task function is restricted. If you require the us
 In this example, we're reading a file in a separate thread and returning the data in string format. We start by defining a task function that will run within the thread, and then we prepare the necessary parameters to be passed as inputs to that function.
 
 ```javascript
-import { runOnThread } from 'funthreads';
+import executeInThread from 'funthreads';
 
 
 async function task({ name }) {
-    // closure doesn't work here
+    // Closure doesn't work here
 
     const fs = require('fs/promises');
     const buffer = await fsPromises.readFile(fileName);
@@ -92,7 +93,7 @@ const params = {
 };
 
 async function read() {
-    const content = await runOnThread(task, params);
+    const content = await executeInThread(task, params);
     
     console.log(content);
 }
