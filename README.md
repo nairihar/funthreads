@@ -53,9 +53,9 @@ calculate();
 Execute a function in a thread.
 
 #### Parameters
-`Task (Function)`: The function to be executed in a thread.
+`- Task (Function)`: The function to be executed in a thread.
 
-`...params (any)`: Additional arguments to be passed to the Task function.
+`- ...params (any)`: Additional arguments to be passed to the Task function.
 
 The `executeInThread` function allows you to execute a given task function in a dedicated thread, similar to the behavior of `setTimeout` or `setInterval`. You provide the main function to be executed, along with any additional arguments (...args) that should be passed to the given function.
 
