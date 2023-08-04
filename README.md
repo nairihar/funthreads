@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/funthreads.svg)](https://www.npmjs.com/package/funthreads)
 
 # funthreads
-Introducing an enhanced layer for the Node.js `worker_threads` module.
+A simple library that provides an abstraction for the Node.js worker_threads module. 🔥
 
 This library presents a function that takes a callback as its parameter, orchestrates its execution in a dedicated thread, and subsequently delivers a Promise. Within the confines of this callback, you retain the freedom to furnish either a Promise or an unprocessed value (ranging from objects to strings, and more).
 
