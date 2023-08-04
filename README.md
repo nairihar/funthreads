@@ -56,13 +56,14 @@ A comprehensive example can be found here: [_basic/index.js_](https://github.com
 Execute a function in a thread.
 
 #### Parameters
-*Task (Function)*: The function to be executed in a thread.
-*...params (any)*: Additional arguments to be passed to the Task function.
+**Task (Function)**: The function to be executed in a thread.
+
+**...params (any)**: Additional arguments to be passed to the Task function.
 
 The `executeInThread` function allows you to execute a given task function in a dedicated thread, similar to the behavior of `setTimeout` or `setInterval`. You provide the main function to be executed, along with any additional arguments (...args) that should be passed to the given function.
 
 #### Returns
-*Promise<any>*: A Promise that resolves with the return value of the callback.
+**Promise<any>**: A Promise that resolves with the return value of the callback.
 
 Inside the provided function, you have the flexibility to return any value, including a Promise. The returned value, whether it's a standard value or a Promise, will be passed back to you as the resolved result of the `Promise` returned by the `executeInThread` function.
 
