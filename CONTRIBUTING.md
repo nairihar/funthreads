@@ -1,11 +1,11 @@
-# Contributing to `worker_map`
+# Contributing to `funthreads`
 
 Contributions are always welcome.
-To contribute, [fork](https://help.github.com/articles/fork-a-repo/) worker_map, commit your changes, & [send a pull request](https://help.github.com/articles/using-pull-requests/).
+To contribute, [fork](https://help.github.com/articles/fork-a-repo/) funthreads, commit your changes, & [send a pull request](https://help.github.com/articles/using-pull-requests/).
 
 ## Feature Requests
 
-Feature requests should be submitted in the [issue tracker](https://github.com/nairihar/worker_map/issues), with a description of
+Feature requests should be submitted in the [issue tracker](https://github.com/nairihar/funthreads/issues), with a description of
 the expected behavior & use case.
 
 ## Pull Requests
