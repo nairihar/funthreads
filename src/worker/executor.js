@@ -1,14 +1,14 @@
-import path from 'path';
-import { Worker } from 'worker_threads';
+const path = require('path');
+const { Worker } = require('worker_threads');
 
-const workerPath = path.join(__dirname, 'thread.js');
+const workerPath = path.join(__dirname, 'worker.js');
 
-export default (metadata: object): Promise<void> => new Promise((resolve, reject) => {
+module.exports = (workerData) => new Promise((resolve, reject) => {
   const worker = new Worker(workerPath, {
-    workerData: metadata,
+    workerData,
   });
 
-  let finished:boolean = false;
+  let finished = false;
 
   worker.once('message', ({ errMessage, data }) => {
     finished = true;

@@ -1,31 +1,21 @@
 {
   "name": "funthreads",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A lightweight tool built on top of Node.js worker_threads, enabling multithreading.",
   "keywords": [
-    "node.js",
     "worker",
     "workers",
     "thread",
-    "threads",
-    "worker-threads"
+    "worker_threads",
+    "multithreading"
   ],
-  "main": "dist/index.js",
-  "directories": {
-    "example": "examples",
-    "test": "test"
-  },
+  "main": "src/funthreads.js",
   "engines": {
     "node": ">=10.5"
   },
   "scripts": {
-    "lint:src": "eslint src --fix",
-    "lint:test": "NODE_ENV=development eslint test/**/* --fix",
-    "lint:examples": "NODE_ENV=development eslint examples --fix",
-    "build": "rimraf dist && tsc && npm run copy-files",
-    "test": "jest test/**/*.ts --coverage",
-    "copy-files": "copyfiles -u 1 src/**/*.js dist",
-    "prepare": "npm run build"
+    "test": "node --test ./test",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -38,17 +28,7 @@
   },
   "homepage": "https://github.com/nairihar/funthreads#readme",
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.1",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "babel-eslint": "^10.1.0",
-    "copyfiles": "^2.4.1",
-    "eslint": "^7.28.0",
-    "jest": "^27.0.4",
-    "mocha": "^9.2.2",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^27.0.2",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
+    "eslint": "8.49.0",
+    "eslint-config-airbnb-base": "15.0.0"
   }
 }

@@ -1,19 +1,20 @@
-import executeInThread from 'funthreads';
+const { executeInThread, ThreadModules } = require('funthreads');
 
 // this will be executed in a dedicated thread
-async function task(fileName) {
-    // Closure doesn't work here
-    const { writeFile } = require('fs/promises');
+async function task(modules) {
+  // Closure doesn't work here
+  const { readFile } = modules['fs/promises'];
 
-    await writeFile(fileName, 'Hello from a thread!');
+  const content = await readFile(__filename);
+
+  return content.toString();
 }
 
-const fileName = 'thread.txt';
-
 async function read() {
-    const content = await executeInThread(task, fileName);
-    
-    console.log(content);
+  const modules = new ThreadModules('fs/promises');
+  const content = await executeInThread(task, modules);
+
+  console.log(content);
 }
 
 read();
