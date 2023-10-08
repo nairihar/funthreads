@@ -12,8 +12,9 @@ const generateWorkerCode = (func) => `
 
     try {
       const task = ${func};
-      const modules = loadModules(workerData.workerModules);
-      const res = task(...workerData.workerParams, modules);
+      const res = workerData.workerModules
+        ? task(loadModules(workerData.workerModules), ...workerData.workerParams)
+        : task(...workerData.workerParams);
       const data = (res instanceof Promise) ? await res : res;
       parentPort.postMessage({ data });
     } catch(err) {

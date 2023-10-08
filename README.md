@@ -110,12 +110,14 @@ async function task(modules) {
 }
 
 async function read() {
-  const modules = new ThreadModules('fs/promises', 'test', 'path', ...);
-  const content = await executeInThread(task, modules);
+  const requiredModules = new ThreadModules('fs/promises', 'test', 'path', ...);
+  const content = await executeInThread(task, requiredModules);
   console.log(content);
 }
 
 read();
 ```
 
-The `ThreadModules` class lets you set up modules for the thread. Just provide it as the second argument, and you'll have access to the libraries through the `modules` object.
+The `ThreadModules` class lets you set up modules for the thread. You can provide it only thorough the second argument, and you'll have access to the libraries through the `modules` object.
+
+You should only provide the `ThreadModules` type of object once through the second parameter. Attempting to provide it multiple times will result in an error. Additionally, avoid returning the `modules` object from the task function, as it will also lead to errors.

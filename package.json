@@ -1,6 +1,6 @@
 {
   "name": "funthreads",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A lightweight tool built on top of Node.js worker_threads, enabling multithreading.",
   "keywords": [
     "worker",
