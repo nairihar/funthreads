@@ -25,7 +25,7 @@ test('Should get access to modules', async () => {
   const param1 = 100;
   const param2 = 14;
 
-  const num = await executeInThread((p1, p2, modules) => {
+  const num = await executeInThread((modules, p1, p2) => {
     if (modules['assert'] && modules['fs']) {
       return p1 ** p2;
     }
