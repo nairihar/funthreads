@@ -3,28 +3,27 @@
 ![](https://img.shields.io/npm/l/funthreads.svg)
 
 # funthreads
-A simple library that provides an abstraction for the Node.js `worker_threads` module. You can run your function in a dedicated thread by working with Promises.
+A simple library that provides an abstraction for the Node.js `worker_threads` module.
+It enables you to run your function in a separate thread. You receive a Promise that resolves with the result of your function.
 
 ### Example
 ```js
 const { executeInThread } = require('funthreads');
 
-async function calculate() {
-    const values = await Promise.all([
-        executeInThread(() => 2 ** 10), // this doesn't block the main thread
-        executeInThread(() => 3 ** 10)
-    ]);
-    
-    console.log(values); // 1024, 59049
-}
+// heavy operation (this will not block the main thread)
+const num = await executeInThread((limit) => {
+  let result = 0, i = 1;
 
-calculate();
+  while (i <= limit) {
+    result += i.toString().split('').reverse().join('').length;
+    i++;
+  }
+
+  return result;
+}, 12345678);
 ```
 
-This example demonstrates the optimization of two resource-intensive calculations through parallel execution in distinct threads.
-By distributing the tasks across separate threads, significant time savings are achieved.
-
-Funthreads takes a task function as its parameter, orchestrates its execution in a new thread, and subsequently delivers a Promise.
+This example highlights the optimization of a resource-intensive calculation. By executing the function in a separate thread, we prevent the main thread from being blocked.
 
 **Surprisingly simple, isn't it?**
 
